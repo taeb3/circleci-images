@@ -4,7 +4,7 @@ NAME=Java
 BASE_REPO=openjdk
 VARIANTS=(browsers node node-browsers)
 
-TAG_FILTER="grep -v -e ^7 -e ^6 -e jre -e oraclelinux"
+TAG_FILTER="grep -v -e ^7 -e ^6 -e jre -e oraclelinux -e ea"
 # 8-jdk is explicitly added due to it being an old, Debian-based image, it 
 # doesn't need a -stretch or -buster tag but is stretch
 TAG_INCLUDE_FILTER="grep -e 8-jdk -e stretch -e buster"
