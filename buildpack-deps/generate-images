@@ -4,4 +4,6 @@ NAME="buildpack-deps"
 BASE_REPO=buildpack-deps
 VARIANTS=(browsers)
 
+TAG_FILTER="grep -v -e focal -e hirsute -e impish"
+
 source ../shared/images/generate.sh
