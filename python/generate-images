@@ -7,7 +7,8 @@ VARIANTS=(browsers node node-browsers)
 IMAGE_CUSTOMIZATIONS=$(cat <<'EOF'
 
 # Install pipenv and poetry
-RUN sudo pip install --no-cache pipenv poetry
+RUN sudo pip install --no-cache pipenv poetry && \
+sudo apt-get update && sudo apt-get install -y libgbm1
 
 EOF
 )
