@@ -276,7 +276,8 @@ workflows:
   build_test_deploy:
     triggers:
       - schedule:
-          cron: "0 0 * * *"
+          # weekly on Monday
+          cron: "0 0 * * 1"
           filters:
             branches:
               only:
