@@ -86,10 +86,16 @@ RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.and
 RUN yes | sdkmanager --licenses && yes | sdkmanager --update
 
 # Update SDK manager and install system image, platform and build tools
+# Platform tools will be installed manually outside of sdkmanager. This is due
+# to an issue with the current latest version 31.0.3. We'll likely be able to 
+# undo this change in the near future.
 RUN sdkmanager \
-  "tools" \
-  "platform-tools" \
-  "emulator"
+  		"tools" \
+  		"emulator" && \
+	cd /opt/android/sdk && \
+	curl -sSL "https://dl.google.com/android/repository/platform-tools_r31.0.2-linux.zip" -o platform-tools.zip && \
+	unzip -o platform-tools.zip && \
+	rm platform-tools.zip
 
 RUN sdkmanager \
   "build-tools;27.0.0" \
