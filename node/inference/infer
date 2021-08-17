@@ -23,7 +23,7 @@ jobs:
   build:
     docker:
       # change this image to the appropriate node version
-      # if using Selenium, use ${DEFAULT_NODE_IMAGE}-browsers image instead 
+      # if using Selenium, use ${DEFAULT_NODE_IMAGE}-browsers image instead
       - image: ${DEFAULT_NODE_IMAGE}
     environment:
       NODE_ENV: test

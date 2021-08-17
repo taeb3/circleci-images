@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Java Helpers 
+# Java Helpers
 # Provide functions to help with working with various java tools
 
 from distutils.version import LooseVersion
@@ -18,18 +18,18 @@ SBT_URL = 'https://www.scala-sbt.org/download.html'
 SBT_URL_PATTERN = r'https://[^"]*tgz'
 
 def get_latest_version(url, pattern):
-    """Return latest version of given tool 
+    """Return latest version of given tool
 
     Args:
-        url: url to search 
+        url: url to search
         pattern: regex pattern to get version
 
     Returns:
-        A string representing the latest version of a given tool 
+        A string representing the latest version of a given tool
     """
     raw_html = urllib2.urlopen(url).read()
     raw_versions = re.finditer(pattern, raw_html)
-    # strip out any leading text 
+    # strip out any leading text
     clean_versions = map(lambda x: re.sub(r'^\D+', '', x.group()), raw_versions)
     # use LooseVersion to account for (1.10 < 1.9 = True)
     versions = sorted(clean_versions, key=LooseVersion)
@@ -50,7 +50,7 @@ def get_sbt_url(url, pattern):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get Latest Version of Java Tools.')
-    parser.add_argument('get', type=str, choices=['ant', 'gradle', 'maven', 'sbt'], 
+    parser.add_argument('get', type=str, choices=['ant', 'gradle', 'maven', 'sbt'],
             help='get latest version of desired tool')
     args = parser.parse_args()
     if args.get == 'ant':

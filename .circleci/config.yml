@@ -81,7 +81,7 @@ jobs:
           command: |
             # rather than give internet scripts SU rights, we install to local user bin and add to path
 
-            # can't set these as normal job env vars, b/c they're overriden by the env section in the platform-specific jobs
+            # can't set these as normal job env vars, b/c they're overridden by the env section in the platform-specific jobs
             export GOSS_DST=~/bin
 
             curl -fsSL https://goss.rocks/install | sh
