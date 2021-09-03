@@ -1,3 +1,7 @@
+**Deprecation Notice:** the legacy Convenience Images (the images in this repo) are now deprecated. They have been replaced by the next-gen Convenience Images. We will no longer be accepting PRs for features or improvements to these images. Instead, please migrate over to the new images. You can view and ask questions about the deprecation on [CircleCI Discuss](https://discuss.circleci.com/t/legacy-convenience-image-deprecation/41034). You can browse next-gen Convenience Images and what's available via the [CircleCI Developer Hub](https://circleci.com/developer/images). You can find the repos for next-gen images [here](https://github.com/CircleCI-Public?q=cimg-&type=&language=&sort=).
+
+---
+
 # CircleCI Images [![CircleCI Build Status](https://circleci.com/gh/circleci/circleci-images.svg?style=shield)](https://circleci.com/gh/circleci/circleci-images) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/circleci/circleci-docs/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com)
 
 ## Stay informed about CircleCI image changes/announcements
