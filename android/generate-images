@@ -18,7 +18,7 @@ function generate_dockerfile {
 }
 
 # we can set parallelism to 8 to cover all API versions (23 through 30)
-# if we want to add another API version, bump paralellism by 1
+# if we want to add another API version, bump parallelism by 1
 if [[ "$CIRCLE_NODE_TOTAL" -gt 1 ]]; then
   let API=${CIRCLE_NODE_INDEX}+23
   echo Generating Android ${API} Dockerfiles

@@ -78,7 +78,7 @@ RUN if which apt-get > /dev/null ; then \
       && apk del .fetch-deps .build-deps .build-deps-testing \
     ; fi
 
-ADD https://raw.githubusercontent.com/appropriate/docker-postgis/master/initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh 
+ADD https://raw.githubusercontent.com/appropriate/docker-postgis/master/initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh
 ADD https://raw.githubusercontent.com/appropriate/docker-postgis/master/update-postgis.sh /usr/local/bin/update-postgis.sh
 
 RUN chmod +r /docker-entrypoint-initdb.d/postgis.sh && chmod +rx /usr/local/bin/update-postgis.sh
