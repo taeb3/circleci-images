@@ -273,38 +273,64 @@ commit_workflow_filters: &commit_workflow_filters
   scheduled-workflow: false
 
 workflows:
-  build_test_deploy:
+  build_test_deploy_timeline1:
     triggers:
       - schedule:
-          # weekly on Monday
-          cron: "0 0 * * 1"
+          # on the 18th of the month
+          cron: "0 0 18 * *"
           filters:
             branches:
               only:
                 - master
     jobs:
-      #- circle-compare-url/reconstruct:
-      #    name: reconstruct_compare_url
-      #    resource-class: small
       - publish_android:        *cron_workflow_filters
       - publish_node:           *cron_workflow_filters
       - publish_python:         *cron_workflow_filters
       - publish_ruby:           *cron_workflow_filters
       - publish_golang:         *cron_workflow_filters
       - publish_php:            *cron_workflow_filters
-      - publish_redis:          *cron_workflow_filters
       - publish_postgres:       *cron_workflow_filters
+      - publish_elixir:         *cron_workflow_filters
+      - publish_jruby:          *cron_workflow_filters
+      - publish_openjdk:        *cron_workflow_filters
+      - publish_rust:           *cron_workflow_filters
+      - publish_buildpack-deps: *cron_workflow_filters
+      - publish_erlang:         *commit_workflow_filters
+
+  build_test_deploy_timeline2:
+    triggers:
+      - schedule:
+          # 1st of month
+          cron: "0 0 1 * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - publish_redis:          *cron_workflow_filters
       - publish_mariadb:        *cron_workflow_filters
       - publish_mysql:          *cron_workflow_filters
       - publish_mongo:          *cron_workflow_filters
       - publish_elixir:         *cron_workflow_filters
-      - publish_jruby:          *cron_workflow_filters
       - publish_clojure:        *cron_workflow_filters
-      - publish_openjdk:        *cron_workflow_filters
       - publish_dynamodb:       *cron_workflow_filters
-      - publish_rust:           *cron_workflow_filters
-      - publish_buildpack-deps: *cron_workflow_filters
-      - publish_erlang:         *commit_workflow_filters
+  build_test_deploy_timeline3:
+    triggers:
+      - schedule:
+          # 15th of month
+          cron: "0 0 15 * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - publish_redis:          *cron_workflow_filters
+      - publish_mariadb:        *cron_workflow_filters
+      - publish_mysql:          *cron_workflow_filters
+      - publish_mongo:          *cron_workflow_filters
+      - publish_elixir:         *cron_workflow_filters
+      - publish_clojure:        *cron_workflow_filters
+      - publish_dynamodb:       *cron_workflow_filters
 
   commit:
     jobs:
